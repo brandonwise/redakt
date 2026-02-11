@@ -1,13 +1,52 @@
 {
   "name": "redakt",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "CLI tool for detecting and masking PII in text — emails, phones, credit cards, IPs, API keys — pipe-friendly and zero-dependency",
   "main": "src/index.js",
-  "scripts": {
-    "start": "node src/index.js",
-    "test": "echo \"TODO: add tests\" && exit 0",
-    "lint": "echo \"TODO: add linter\" && exit 0",
-    "build": "echo \"TODO: add build\" && exit 0"
+  "bin": {
+    "redakt": "src/cli.js"
   },
-  "private": true
+  "scripts": {
+    "test": "node --test",
+    "test:coverage": "node --test --experimental-test-coverage",
+    "lint": "eslint src test",
+    "lint:fix": "eslint src test --fix",
+    "format": "prettier --write \"src/**/*.js\" \"test/**/*.js\"",
+    "format:check": "prettier --check \"src/**/*.js\" \"test/**/*.js\"",
+    "prepublishOnly": "npm run lint && npm test"
+  },
+  "keywords": [
+    "pii",
+    "redact",
+    "mask",
+    "sanitize",
+    "privacy",
+    "security",
+    "gdpr",
+    "email",
+    "phone",
+    "credit-card",
+    "cli"
+  ],
+  "author": "Brandon Wise",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandonwise/redakt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/brandonwise/redakt/issues"
+  },
+  "homepage": "https://github.com/brandonwise/redakt#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "src/"
+  ],
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.5"
+  }
 }
